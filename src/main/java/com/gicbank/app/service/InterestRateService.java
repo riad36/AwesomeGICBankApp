@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import com.gicbank.app.util.CommonMessages;
 import com.gicbank.app.util.CommonUtil;
 import com.gicbank.app.model.AccountTransaction;
+import com.gicbank.app.model.CustomerAccount;
 import com.gicbank.app.model.InterestRate;
 import com.gicbank.app.model.TransactionType;
 
@@ -27,7 +28,7 @@ public class InterestRateService {
 				new InterestRate(intRateEffectiveDate, interestRuleId, interestRate));
 		return true;
 	}
-
+	
 	public void printDatewiseInterestRules() {
 		if (interestRuleList != null && !interestRuleList.isEmpty()) {
 			Collections.sort(new ArrayList<>(interestRuleList.keySet()), (i1, i2) -> i2.equalsIgnoreCase(i1) ? 0 : 1);
