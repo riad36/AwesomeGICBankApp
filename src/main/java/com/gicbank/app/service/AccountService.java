@@ -79,9 +79,10 @@ public class AccountService {
 					prevDateBeforeStartofMonth);
 			List<AccountTransaction> accTransactionList = TransactionService
 					.getDateWiseSortedTransactionsBtwPeriodByAccountNo(accountNo, startOfMonth, endOfMonth);
-			System.out.println("Account: " + custAccount.getAccountNo() + "      		 As On "
-					+ CommonUtil.toDateString(prevDateBeforeStartofMonth) + " Account Balance: " + accountBalance);
-			System.out.println("| Date     | Txn Id       | Type | Amount           | Balance          |");
+			System.out.println("Account: " + custAccount.getAccountNo()) ;
+					//"      		 As On "
+					//+ CommonUtil.toDateString(prevDateBeforeStartofMonth) + " Account Balance: " + accountBalance);
+			System.out.println("| Date  (YYYYMMdd)   | Txn Id       | Type | Amount           | Balance          |");
 			if (accTransactionList != null) {
 				for (AccountTransaction accountTransaction : accTransactionList) {
 					if (accountTransaction.getTransactionType()

@@ -20,7 +20,7 @@ https://github.com/riad36/AwesomeGICBankApp.git# Awesome GIC Bank Application
    C. printing account statement
 ## Code
 
-[![Build Status](https://qa.nuxeo.org/jenkins/buildStatus/icon?job=/nuxeo/addons_nuxeo-sample-project-master)](https://github.com/riad36/AwesomeGICBankApp.git/)
+(https://github.com/riad36/AwesomeGICBankApp.git/)
 
 ### Content
 
@@ -40,6 +40,14 @@ This is only java console project.
 
 Build options:
 
+Once build is completed, a jar is generated with name awesome-gic-bank-0.0.1-SNAPSHOT.
+
 * ...
 
 ### Deploy (how to install build product)
+
+Here are the steps to run JAR files using the Command prompt:
+Step 1) Open Command Prompt. Then press the Windows key and type “cmd” on your keyboard. ...
+Step 2) Type the command “java -jar <pathtofile> awesome-gic-bank-0.0.1-SNAPSHOT.jar” 
+Step 3) Run the command.
+

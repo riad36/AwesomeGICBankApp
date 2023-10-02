@@ -29,11 +29,16 @@ public class InterestRateService {
 		return true;
 	}
 	
+	/**
+	 * Method to print Date wise Interest Rules
+	 * 
+	 * 
+	 */
 	public void printDatewiseInterestRules() {
 		if (interestRuleList != null && !interestRuleList.isEmpty()) {
 			Collections.sort(new ArrayList<>(interestRuleList.keySet()), (i1, i2) -> i2.equalsIgnoreCase(i1) ? 0 : 1);
 			System.out.println("Interest rules:");
-			System.out.println("| Date     | RuleId | Rate (%) |");
+			System.out.println("| Date (YYYYMMdd)  | RuleId | Rate (%) |");
 			for (Map.Entry<String, InterestRate> entry : interestRuleList.entrySet()) {
 				InterestRate val = entry.getValue();
 				System.out.println("| " + CommonUtil.toDateString(val.getIntRateEffectiveDate()) + " | "
@@ -46,6 +51,12 @@ public class InterestRateService {
 		}
 	}
 
+	/**
+	 * Method to find  Interest Rate based As On Date
+	 * 
+	 * @return Interest Rate
+	 */
+	
 	public static BigDecimal getInterestRateAsOnDate(LocalDate asOnDate) {
 		if (interestRuleList != null && !interestRuleList.isEmpty()) {
 			List<String> interestRateDateList = new ArrayList<>(interestRuleList.keySet());
@@ -64,6 +75,12 @@ public class InterestRateService {
 		return ChronoUnit.DAYS.between(startDate, endDate);
 	}
 
+	
+	/**
+	 * Method to apply  YearlyInterest Rate 
+	 * 
+	 * @return Final Balance
+	 */
 	public static BigDecimal applyYearlyInterest(BigDecimal eodBalance, final LocalDate intCalcStartDate,
 			final LocalDate intCalcEndDate, LocalDate distinctTransactionDate) {
 		BigDecimal finalBal = BigDecimal.ZERO;
@@ -122,6 +139,11 @@ public class InterestRateService {
 				.divide(new BigDecimal("100"), 2, RoundingMode.HALF_UP).setScale(2, RoundingMode.HALF_UP);
 	}
 
+	/**
+	 * Method to print Calculated Interest Amount For Statement
+	 * 
+	 * 
+	 */
 	public static void printCalculatedInterestAmountForStatement(String accountNo,
 			List<AccountTransaction> accTransactionList, LocalDate startOfMonth, LocalDate endOfMonth,
 			BigDecimal accountBalance) {

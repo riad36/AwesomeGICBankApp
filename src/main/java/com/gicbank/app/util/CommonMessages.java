@@ -23,7 +23,7 @@ public class CommonMessages {
 	public static final String TRANSACTION_INPUT_MESSAGE = "Please enter transaction details in <Date> <Account> <Type> <Amount> format\n(or enter B to go back to main menu):";
 	public static final String INTEREST_INPUT_MESSAGE = "Please enter interest rules details in <Date> <RuleId> <Rate in %> format\n(or enter B to go back to main menu):";
 	public static final String STATEMENT_PRINT_INPUT_MESSAGE = "Please enter account and month to generate the statement <Account> <Year><Month>\n(or enter B to go back to main menu):";
-
+    public static final String INVALID_INPUT ="Invalid Input";
 	// Functional Messages
 	public static final String NO_BALANCE_FOR_W_MESSAGE = "Input Amount shouldn't not be greater than Account Available Balance!";
 	public static final String NO_INTEREST_RULE_MESSAGE = "No Interest Rule is Defined!";

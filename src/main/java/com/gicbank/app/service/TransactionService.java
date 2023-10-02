@@ -24,6 +24,11 @@ public class TransactionService {
 				+ CommonUtil.padLeft(String.valueOf(dayTranCount + 1), 3, "0");
 	}
 
+	/**
+	 * Method to process a Transaction
+	 * 
+	 * @return Boolean
+	 */
 	public Boolean processTransaction(LocalDate transactionDate, String accountNo, String transactionType,
 			BigDecimal transactionAmount) {
 		CustomerAccount custAccount = AccountService.getCustAccountByAccountNo(accountNo);
@@ -53,17 +58,33 @@ public class TransactionService {
 		}
 		return true;
 	}
-
+	
+	
+	/**
+	 * Method to add a Transaction
+	 * 
+	 * 
+	 */
 	public void addTransaction(AccountTransaction accountTransaction) {
 		transactionList.add(accountTransaction);
 	}
 
+	/**
+	 * Method to find the Date Wise Sorted Transactions for the given Account No
+	 * 
+	 * @return List of Account Transactions
+	 */
 	public static List<AccountTransaction> getDateWiseSortedTransactionsByAccountNo(String accountNo) {
 		return transactionList.stream().filter(t -> t.getAccountNo().equalsIgnoreCase(accountNo))
 				.sorted((o1, o2) -> o1.getTransactionDate().compareTo(o2.getTransactionDate()))
 				.collect(Collectors.toList());
 	}
 
+	/**
+	 * Method to find the Date Wise Sorted Transactions Between Period  for the given Account No
+	 * 
+	 * @return List of Account Transactions
+	 */
 	public static List<AccountTransaction> getDateWiseSortedTransactionsBtwPeriodByAccountNo(String accountNo,
 			LocalDate startDate, LocalDate endDate) {
 		return transactionList.stream().filter(t -> t.getAccountNo().equalsIgnoreCase(accountNo)).filter(
@@ -72,6 +93,11 @@ public class TransactionService {
 				.collect(Collectors.toList());
 	}
 	
+	/**
+	 * Method to find the Account Balance based on As On Date
+	 * 
+	 * 
+	 */
 	public static BigDecimal getAsOnDateAccountBalance(String accountNo, LocalDate asOnDate) {
 		BigDecimal accountBalance = BigDecimal.ZERO;
 		List<AccountTransaction> accTranListAsOnPrevDate = transactionList.stream().filter(t -> t.getAccountNo().equalsIgnoreCase(accountNo))
@@ -86,7 +112,11 @@ public class TransactionService {
 		}
 		return accountBalance;
 	}
-
+	/**
+	 * Method to print Transaction Statement for the given Account No
+	 * 
+	 * 
+	 */
 	public void printTransactionStatementByAccountNo(String accountNo) {
 		CustomerAccount custAccount = AccountService.getCustAccountByAccountNo(accountNo);
 		if (custAccount != null) {
@@ -105,7 +135,8 @@ public class TransactionService {
 				System.out.println();
 			}
 		} else {
-			// TODO invalid account
+			System.out.println(CommonMessages.INVALID_ACCOUNT_NO);
+			
 		}
 	}
 }

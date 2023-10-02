@@ -1,5 +1,7 @@
 package com.gicbank.app.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class InterestRateServiceTest {
 
 		InterestRateService.printCalculatedInterestAmountForStatement("S123", accTransactionList,
 				LocalDate.of(2023, 06, 01), LocalDate.of(2023, 06, 30), new BigDecimal("300.00"));
+		
 	}
 
 }
