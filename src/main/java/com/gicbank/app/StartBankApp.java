@@ -176,7 +176,7 @@ public class StartBankApp {
 			System.out.println(CommonMessages.FAIRWELL_MESSAGE);
 			System.exit(0);
 		} else {
-
+			System.out.println(CommonMessages.INVALID_INPUT);
 		}
 	}
 

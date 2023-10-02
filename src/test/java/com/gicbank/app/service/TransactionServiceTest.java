@@ -17,8 +17,11 @@ public class TransactionServiceTest {
 	@BeforeEach
 	public void setUp() {
 		targetClass = new TransactionService();
+		
 		AccountService.updateAccountBalance("S123", new BigDecimal("100"));
 		TransactionService t1 = new TransactionService();
+		t1.addTransaction(new AccountTransaction(t1.generateTransactionId(LocalDate.of(2023, 6, 1)),
+				LocalDate.of(2023, 6, 1), "S123", "D", new BigDecimal("300.00")));
 		t1.processTransaction(LocalDate.of(2023, 6, 1), "S123", "D", new BigDecimal("1000.00"));
 		t1.processTransaction(LocalDate.of(2023, 6, 1), "S123", "W", new BigDecimal("300.00"));
 	}
